@@ -17,6 +17,7 @@
 #include <cmath>
 
 #include <boost/thread/barrier.hpp>
+#include <benchmark/benchmark.h>
 
 #include "multiqueue.h"
 #include "utils.h"

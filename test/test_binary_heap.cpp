@@ -8,7 +8,7 @@ TEST(BinaryHeap, Simple) {
         vertexes[i].vertex = i;
         vertexes[i].set_dist_relaxed(dists[i]);
     }
-    BinaryHeap heap = BinaryHeap();
+    my_d_ary_heap<> heap = my_d_ary_heap<>(dists.size());
     ASSERT_TRUE(heap.empty());
     for (std::size_t i = 0; i < dists.size(); i++) {
         heap.push(&vertexes[i]);
@@ -19,8 +19,8 @@ TEST(BinaryHeap, Simple) {
     ASSERT_EQ(1, heap.top()->get_dist());
 
     std::vector<std::size_t> pop_dists = {1, 2, 3, 4, 7};
-    for (std::size_t i = 0; i < pop_dists.size(); i++) {
-        ASSERT_EQ(pop_dists[i], heap.top()->get_dist());
+    for (unsigned long pop_dist : pop_dists) {
+        ASSERT_EQ(pop_dist, heap.top()->get_dist());
         ASSERT_FALSE(heap.empty());
         heap.pop();
     }
